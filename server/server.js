@@ -14,7 +14,11 @@ app.use(
     useTempFiles: true,
   })
 );
-//sdfasdf
+
+//Router
+
+app.use("/user", require("./routes/user.router")); //chọc vào đúng router cần đến
+
 // Connect to mongodb
 const URI = process.env.MONGODB_URL;
 mongoose.connect(
@@ -30,11 +34,8 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
-app.get("/", (req, res) => {
-  res.json({ msg: "nammmmmm" });
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log("Server is running on port", PORT);
+  console.log(`Server is running on port ${PORT}`);
 });
