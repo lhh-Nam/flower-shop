@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.json());
@@ -15,8 +16,9 @@ app.use(
   })
 );
 
-//Router
+app.use(bodyParser.json());
 
+//Router
 app.use("/user", require("./routes/user.router")); //chọc vào đúng router cần đến
 app.use("/api", require("./routes/category.router"));
 
