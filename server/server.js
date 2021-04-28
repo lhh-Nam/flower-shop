@@ -18,6 +18,7 @@ app.use(
 //Router
 
 app.use("/user", require("./routes/user.router")); //chọc vào đúng router cần đến
+app.use("/api", require("./routes/category.router"));
 
 // Connect to mongodb
 const URI = process.env.MONGODB_URL;
